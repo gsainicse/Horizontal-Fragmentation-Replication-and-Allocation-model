@@ -3,7 +3,7 @@ import psycopg2
 
 print("Connecting to all the servers")
 
-samphat = psycopg2.connect(host="10.100.53.25",   port=2345, database="gurdeep", user="postgres", password="it701");
+samphat = psycopg2.connect(host="10.100.53.25",port=2345, database="gurdeep", user="postgres", password="it701");
 kushal = psycopg2.connect(host="10.100.54.83",port=2345, database="gurdeep", user="postgres", password="it701");
 niranjan= psycopg2.connect(host="10.100.53.121",port=5432, database="gurdeep", user="postgres", password="it701");
 
@@ -36,10 +36,6 @@ with open('employee2.csv','r') as f:
     for row in reader:
         length=length+1
 
-
-
-
-
 with open('employee2.csv','r') as f:
     reader = csv.reader(f) 
     count=1
@@ -52,19 +48,15 @@ with open('employee2.csv','r') as f:
         e=row[4]
         f=row[5]
         
-
-        if int(f) < 1500:
-                       
+        if int(f) < 1500: #Not Replicating this fragment   
                 cur_samphat.execute("INSERT INTO employeeone VALUES (%s,%s,%s,%s,%s,%s)", (a,b,c,d,e,f))
 
-        elif int(f)==1500:
+        elif int(f)==1500: # Replication on three server
                 cur_kushal.execute("INSERT INTO employeetwo VALUES (%s,%s,%s,%s,%s,%s)", (a,b,c,d,e,f))
                 cur_niranjan.execute("INSERT INTO employeethree VALUES (%s,%s,%s,%s,%s,%s)", (a,b,c,d,e,f))
                 cur_samphat.execute("INSERT INTO employeeone VALUES (%s,%s,%s,%s,%s,%s)", (a,b,c,d,e,f))
-
                 
         elif int(f)>1500:
-
             cur_kushal.execute("INSERT INTO employeetwo VALUES (%s,%s,%s,%s,%s,%s)", (a,b,c,d,e,f))
             #cur_niranjan.execute("INSERT INTO employeethree VALUES (%s,%s,%s,%s,%s,%s)", (a,b,c,d,e,f))
             cur_samphat.execute("INSERT INTO employeeone VALUES (%s,%s,%s,%s,%s,%s)", (a,b,c,d,e,f))
@@ -78,5 +70,4 @@ cur_niranjan.close()
 samphat.commit()
 kushal.commit()
 niranjan.commit()
-
 
