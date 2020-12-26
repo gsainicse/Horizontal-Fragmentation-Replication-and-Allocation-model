@@ -143,5 +143,5 @@ if x==0:
 if x==1:
 	print("primary candidate attribute is salary")
 if x==2:
-	print("primary candidate  attribute is location ")
+	print("primary candidate attribute is location ")
 
