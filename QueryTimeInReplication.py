@@ -46,7 +46,6 @@ cur_samphat.close()
 cur_kushal.close()
 cur_niranjan.close()
 
-
 samphat.commit()
 kushal.commit()
 niranjan.commit()
