@@ -1,4 +1,8 @@
+# It is the the communication cost between the server
 distancematrix=[[0,5,9,9],[5,0,14,4],[9,14,0,11],[9,4,11,0]]
+# previous queries on the servers
+#RF=retrival Frequency
+#UF=Update Frequency
 arum=[[1,1,3,"RF",1,0,0,1,1,2,0,0,1],
       [1,1,3,"UF",2,0,1,1,0,0,2,2,0],
       [1,2,5,"RF",3,1,0,2,3,1,1,2,0],
@@ -15,7 +19,7 @@ arum=[[1,1,3,"RF",1,0,0,1,1,2,0,0,1],
       [4,4,9,"UF",0,2,1,1,2,0,1,3,0],
       [4,5,3,"RF",1,0,1,2,0,1,2,2,1],
       [4,5,3,"UF",1,0,2,3,1,0,0,0,3]]
-
+# It is the the communication cost between the server
 distancecostmatrix=[[0,5,9,9],
                     [5,0,14,9],
                     [9,14,0,11],
